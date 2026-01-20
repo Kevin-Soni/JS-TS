@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let checkEven = new Promise((resolve, reject) => {
+            if(10%2==0) {
+                resolve("even")
+            }
+            else{
+                reject("odd")
+            }
+        });
+        checkEven.then((data)=>{
+            console.log('success', data);
+            
+        }).catch((arr)=>{
+            console.log(err);
+            
+        })
+    </script>
+</body>
+</html>

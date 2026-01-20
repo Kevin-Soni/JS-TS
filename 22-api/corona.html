@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        fetch("https://api.rootnet.in/covid19-in/stats/latest").then((res) => {
+            return res.json()
+        }).then((data) => {
+            console.log(data);
+            covid(data)
+
+        }).catch((err) => {
+            console.log(err);
+        })
+        function covid(val) {
+            const div = document.createElement("div")
+            const loc = document.createElement("h3")
+
+            loc.innerHTML = val.data.regional[1].loc
+
+            const confirmedCasesIndian = document.createElement("h4")
+            confirmedCasesIndian.innerHTML = val.data.regional[1].confirmedCasesIndian
+
+            const deaths = document.createElement("h4")
+            deaths.innerHTML = val.data.regional[1].deaths
+            div.append(loc,confirmedCasesIndian,deaths)
+            
+            document.querySelector("body").append(div)
+        }
+    </script>
+</body>
+
+</html>
